@@ -13,15 +13,6 @@ internal static class DataSource
 
     internal static class Config
     {
-            //שדות מס' רץ עבור Student
-            internal const int StudentIdStart = 1;
-
-            private static int nextStudentId = StudentIdStart;
-
-            public static int NextStudentId
-            {
-                get { return nextStudentId++; }
-            }
 
             //שדות מס' רץ עבור Exam
 
