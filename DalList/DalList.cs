@@ -1,5 +1,6 @@
 ﻿
 using DalApi;
+using System.Reflection;
 
 namespace Dal
 {
@@ -13,10 +14,7 @@ namespace Dal
 
         public IQuestion Question => new QuestionImplementation();
 
-        public IStudentQueston Queston => new StudentQuestionImplementation();
+        public IStudentQueston StudentQuestion => new StudentQuestionImplementation(); //I changed this here: Queston -> StudentQuestion, to match the renamed member in IDal
     }
 }
 
-
-       
-   

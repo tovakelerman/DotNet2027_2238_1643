@@ -11,5 +11,5 @@ public record Student(
 )
 {
     //בנאי ריק 
-public Student() : this(0, "", 0, 0) { }
+public Student() : this(0, String.Empty, 0, 0) { }
 }

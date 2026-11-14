@@ -47,7 +47,7 @@ internal static class DataSource
                 get { return nextAnswerId++; }
             }
 
-            //שדות מס' רץ עבור StudentQuestion
+            //שדות מס' רץ עבור StudentQuestion - not used any more: the id is composed from (studentId, examId, questionId) //I changed this here
 
             internal const int StudentQuestionIdStart = 1;
 

@@ -14,5 +14,7 @@ public enum SubjectType
     Python,
     Core,
     React,
-    Node
+    Node,
+    Databases, //I changed this here: added - Initialization uses SubjectType.Databases and it did not exist (adding at the END so existing values keep their numbers)
+    Networks //I changed this here: added - Initialization uses SubjectType.Networks and it did not exist
 }

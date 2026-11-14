@@ -6,7 +6,7 @@
         IAnswer Answer { get; } 
         IExam Exam { get; } 
         IQuestion Question { get; }
-        IStudentQueston Queston { get; }
+        IStudentQueston StudentQuestion { get; } //I changed this here: Queston -> StudentQuestion (typo in the name; the interface IStudentQueston itself is left as-is)
 
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalFacade", "DalFacade\DalF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalList", "DalList\DalList.csproj", "{AD86EAAA-D9E7-496B-9CA6-D89E529D19FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{BBC276D0-7FBF-44EC-A402-927F4CFC2560}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AD86EAAA-D9E7-496B-9CA6-D89E529D19FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD86EAAA-D9E7-496B-9CA6-D89E529D19FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD86EAAA-D9E7-496B-9CA6-D89E529D19FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC276D0-7FBF-44EC-A402-927F4CFC2560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC276D0-7FBF-44EC-A402-927F4CFC2560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC276D0-7FBF-44EC-A402-927F4CFC2560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC276D0-7FBF-44EC-A402-927F4CFC2560}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

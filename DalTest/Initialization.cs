@@ -1,137 +1,137 @@
 ﻿using DO;
 using DalApi;
 
-
 namespace DalTest;
 
 
 public static class Initialization
 {
     private static IDal s_dal;
+    private static readonly int[] s_correctAnswerIds = new int[20]; //I changed this here: holds the id of the correct answer of every question
     
     private static void CreateAnswer()
     {
         // אתחול התשובות (תשובה נכונה ו-3 תשובות שגויות לכל שאלה)
 
         // שאלה 1
-        s_dal.Answer.Create(new Answer(NextAnswerId, 1, "תכנות מונחה עצמים מתמקד באובייקטים המשלבים נתונים ופעולות יחד, בעוד תכנות פרוצדורלי מתמקד בפונקציות וביצוע של משימות שלב אחר שלב.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 1, "תכנות פרוצדורלי משתמש תמיד במחלקות וממשקים, בעוד מונחה עצמים פועל רק עם פונקציות גלובליות."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 1, "אין שום הבדל מעשי בין השניים, מדובר בשמות שונים לאותו תחביר בדיוק."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 1, "תכנות מונחה עצמים מיועד אך ורק לחומרה ולרשתות, ותכנות פרוצדורלי מיועד למסדי נתונים בלבד."));
+        s_correctAnswerIds[0] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 1, "תכנות מונחה עצמים מתמקד באובייקטים המשלבים נתונים ופעולות יחד, בעוד תכנות פרוצדורלי מתמקד בפונקציות וביצוע של משימות שלב אחר שלב.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 1, "תכנות פרוצדורלי משתמש תמיד במחלקות וממשקים, בעוד מונחה עצמים פועל רק עם פונקציות גלובליות."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 1, "אין שום הבדל מעשי בין השניים, מדובר בשמות שונים לאותו תחביר בדיוק."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 1, "תכנות מונחה עצמים מיועד אך ורק לחומרה ולרשתות, ותכנות פרוצדורלי מיועד למסדי נתונים בלבד."));
 
         // שאלה 2
-        s_dal.Answer.Create(new Answer(NextAnswerId, 2, "איתור ושחרור אוטומטי של זיכרון שהוקצה לאובייקטים שאינם נמצאים עוד בשימוש בתוכנה.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 2, "מחיקת קבצים מיותרים מדיסק הקשיח של המשתמש בעת הפעלת התוכנה."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 2, "איסוף הודעות שגיאה מלוג המערכת ורישומן בקבצי גיבוי."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 2, "המרת קוד מקור לשפת מכונה באופן אוטומטי טרם הידור התוכנית."));
+        s_correctAnswerIds[1] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 2, "איתור ושחרור אוטומטי של זיכרון שהוקצה לאובייקטים שאינם נמצאים עוד בשימוש בתוכנה.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 2, "מחיקת קבצים מיותרים מדיסק הקשיח של המשתמש בעת הפעלת התוכנה."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 2, "איסוף הודעות שגיאה מלוג המערכת ורישומן בקבצי גיבוי."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 2, "המרת קוד מקור לשפת מכונה באופן אוטומטי טרם הידור התוכנית."));
 
         // שאלה 3
-        s_dal.Answer.Create(new Answer(NextAnswerId, 3, "O(log n)")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 3, "O(n)"));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 3, "O(n^2)"));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 3, "O(1)"));
+        s_correctAnswerIds[2] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 3, "O(log n)")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 3, "O(n)"));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 3, "O(n^2)"));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 3, "O(1)"));
 
         // שאלה 4
-        s_dal.Answer.Create(new Answer(NextAnswerId, 4, "עקרון המורה להימנע ככל הניתן משכפול קוד במערכת על ידי יצירת פונקציות או רכיבים הניתנים לשימוש חוזר.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 4, "דרישה לייבש קבצי קוד שנרטבו או נפגמו במהלך העברת נתונים ברשת."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 4, "הימנעות משימוש במשתנים גלובליים בכל מחלקות התוכנה."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 4, "חובה לבצע שמירה אוטומטית של פרויקט התכנות בכל מספר דקות."));
+        s_correctAnswerIds[3] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 4, "עקרון המורה להימנע ככל הניתן משכפול קוד במערכת על ידי יצירת פונקציות או רכיבים הניתנים לשימוש חוזר.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 4, "דרישה לייבש קבצי קוד שנרטבו או נפגמו במהלך העברת נתונים ברשת."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 4, "הימנעות משימוש במשתנים גלובליים בכל מחלקות התוכנה."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 4, "חובה לבצע שמירה אוטומטית של פרויקט התכנות בכל מספר דקות."));
 
         // שאלה 5
-        s_dal.Answer.Create(new Answer(NextAnswerId, 5, "מחסנית פועלת בשיטת LIFO (האחרון שנכנס יוצא ראשון), ותור פועל בשיטת FIFO (הראשון שנכנס יוצא ראשון).")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 5, "מחסנית שומרת נתונים בזיכרון ה-RAM ותור שומר נתונים בדיסק הקשיח בלבד."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 5, "אין הבדל מבני, שניהם פועלים אך ורק בשיטת FIFO."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 5, "תור מיועד לנתונים מספריים בלבד, ומחסנית מיועדת למחלקות ולמחרוזות טקסט."));
+        s_correctAnswerIds[4] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 5, "מחסנית פועלת בשיטת LIFO (האחרון שנכנס יוצא ראשון), ותור פועל בשיטת FIFO (הראשון שנכנס יוצא ראשון).")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 5, "מחסנית שומרת נתונים בזיכרון ה-RAM ותור שומר נתונים בדיסק הקשיח בלבד."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 5, "אין הבדל מבני, שניהם פועלים אך ורק בשיטת FIFO."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 5, "תור מיועד לנתונים מספריים בלבד, ומחסנית מיועדת למחלקות ולמחרוזות טקסט."));
 
         // שאלה 6
-        s_dal.Answer.Create(new Answer(NextAnswerId, 6, "הבטחת ייחודיות מוחלטת לכל שורה (רשומה) בטבלה.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 6, "הגנה על מסד הנתונים מפני פריצות סייבר וגישה לא מורשית."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 6, "האצת פעולות חישוב מתמטיות של השאילתות בשרת."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 6, "קביעת סדר הצגת הנתונים במסך המשתמש באופן אוטומטי."));
+        s_correctAnswerIds[5] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 6, "הבטחת ייחודיות מוחלטת לכל שורה (רשומה) בטבלה.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 6, "הגנה על מסד הנתונים מפני פריצות סייבר וגישה לא מורשית."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 6, "האצת פעולות חישוב מתמטיות של השאילתות בשרת."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 6, "קביעת סדר הצגת הנתונים במסך המשתמש באופן אוטומטי."));
 
         // שאלה 7
-        s_dal.Answer.Create(new Answer(NextAnswerId, 7, "ממשק תכנות יישומים המאפשר לתקשר ולעבד מידע בין מערכות תוכנה שונות.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 7, "פרוטוקול אבטחה מתקדם להצפנת קבצי מערכת הפעלה."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 7, "סביבת פיתוח משולבת (IDE) לבניית יישומי צד-שרת."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 7, "שפת תכנות חדשה המיועדת לפיתוח ממשקי משתמש גרפיים."));
+        s_correctAnswerIds[6] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 7, "ממשק תכנות יישומים המאפשר לתקשר ולעבד מידע בין מערכות תוכנה שונות.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 7, "פרוטוקול אבטחה מתקדם להצפנת קבצי מערכת הפעלה."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 7, "סביבת פיתוח משולבת (IDE) לבניית יישומי צד-שרת."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 7, "שפת תכנות חדשה המיועדת לפיתוח ממשקי משתמש גרפיים."));
 
         // שאלה 8
-        s_dal.Answer.Create(new Answer(NextAnswerId, 8, "האצת תהליכי שליפת נתונים וחיפוש בטבלאות גדולות על חשבון נפח אחסון וזמן עדכון.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 8, "מחיקת שורות כפולות וישנות מהטבלה באופן אוטומטי."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 8, "יצירת קשרים פיזיים בין טבלאות שונות ללא צורך במפתחות זרים."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 8, "גיבוי יומי של כל נתוני המסד לשרת חיצוני."));
+        s_correctAnswerIds[7] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 8, "האצת תהליכי שליפת נתונים וחיפוש בטבלאות גדולות על חשבון נפח אחסון וזמן עדכון.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 8, "מחיקת שורות כפולות וישנות מהטבלה באופן אוטומטי."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 8, "יצירת קשרים פיזיים בין טבלאות שונות ללא צורך במפתחות זרים."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 8, "גיבוי יומי של כל נתוני המסד לשרת חיצוני."));
 
         // שאלה 9
-        s_dal.Answer.Create(new Answer(NextAnswerId, 9, "אטומיות, עקביות, בידוד ועמידות המבטיחים אמינות בפעולות טרנזקציה.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 9, "שיטת דחיסת נתונים מתקדמת לחיסכון במקום אחסון בשרת."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 9, "פרוטוקול תקשורת לאבטחת העברת נתונים בין לקוח לשרת ב-SQL."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 9, "מנגנון לזיהוי ותיקון שגיאות חומרה בדיסקים קשיחים."));
+        s_correctAnswerIds[8] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 9, "אטומיות, עקביות, בידוד ועמידות המבטיחים אמינות בפעולות טרנזקציה.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 9, "שיטת דחיסת נתונים מתקדמת לחיסכון במקום אחסון בשרת."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 9, "פרוטוקול תקשורת לאבטחת העברת נתונים בין לקוח לשרת ב-SQL."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 9, "מנגנון לזיהוי ותיקון שגיאות חומרה בדיסקים קשיחים."));
 
         // שאלה 10
-        s_dal.Answer.Create(new Answer(NextAnswerId, 10, "INNER JOIN מחזיר רק רשומות בעלות התאמה בשתי הטבלאות, ואילו LEFT JOIN מחזיר את כל הרשומות מהטבלה השמאלית גם אם אין להן התאמה.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 10, "INNER JOIN מיועד לחיפוש טקסט ואילו LEFT JOIN מיועד למספרים בלבד."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 10, "אין הבדל ביניהם והם מריצים את אותה שאילתת בדיוק."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 10, "LEFT JOIN פועל רק בבסיסי נתונים לא-רלציוניים (NoSQL)."));
+        s_correctAnswerIds[9] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 10, "INNER JOIN מחזיר רק רשומות בעלות התאמה בשתי הטבלאות, ואילו LEFT JOIN מחזיר את כל הרשומות מהטבלה השמאלית גם אם אין להן התאמה.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 10, "INNER JOIN מיועד לחיפוש טקסט ואילו LEFT JOIN מיועד למספרים בלבד."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 10, "אין הבדל ביניהם והם מריצים את אותה שאילתת בדיוק."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 10, "LEFT JOIN פועל רק בבסיסי נתונים לא-רלציוניים (NoSQL)."));
 
         // שאלה 11
-        s_dal.Answer.Create(new Answer(NextAnswerId, 11, "תהליך תכנון מבנה הטבלאות לצמצום כפילויות מידע ומניעת אנומליות בעדכון.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 11, "תהליך המרת שמות עמודות לאנגלית תקנית ואחידה."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 11, "איפוס סיסמאות המשתמשים במסד הנתונים לברירת המחדל."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 11, "מיון נתוני הטבלה בסדר אלפבתי עולה."));
+        s_correctAnswerIds[10] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 11, "תהליך תכנון מבנה הטבלאות לצמצום כפילויות מידע ומניעת אנומליות בעדכון.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 11, "תהליך המרת שמות עמודות לאנגלית תקנית ואחידה."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 11, "איפוס סיסמאות המשתמשים במסד הנתונים לברירת המחדל."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 11, "מיון נתוני הטבלה בסדר אלפבתי עולה."));
 
         // שאלה 12
-        s_dal.Answer.Create(new Answer(NextAnswerId, 12, "קיבוץ שורות בעלות מאפיינים משותפים לביצוע חישובים סטטיסטיים או סיכומים עליהן.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 12, "מיזוג שתי טבלאות שונות לטבלה אחת ראשית."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 12, "מחיקת שורות כפולות המכילות ערכים ריקים (NULL)."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 12, "הקמת קבוצות הרשאות חדשות למשתמשי המערכת."));
+        s_correctAnswerIds[11] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 12, "קיבוץ שורות בעלות מאפיינים משותפים לביצוע חישובים סטטיסטיים או סיכומים עליהן.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 12, "מיזוג שתי טבלאות שונות לטבלה אחת ראשית."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 12, "מחיקת שורות כפולות המכילות ערכים ריקים (NULL)."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 12, "הקמת קבוצות הרשאות חדשות למשתמשי המערכת."));
 
         // שאלה 13
-        s_dal.Answer.Create(new Answer(NextAnswerId, 13, "יומן הטרנזקציות מתעד ברצף כל שינוי שבוצע לצרכי שחזור ובקרה, והנתונים נשמרים בטבלאות הראשיות.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 13, "קובץ הטרנזקציות מיועד לסיסמאות והנתונים הראשיים לתוכן הרגיל."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 13, "אין הבדל, מדובר באותו קובץ בדיוק המשוכפל לגיבוי."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 13, "קובץ הלוג משמש אך ורק לעבודה במצב אופליין."));
+        s_correctAnswerIds[12] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 13, "יומן הטרנזקציות מתעד ברצף כל שינוי שבוצע לצרכי שחזור ובקרה, והנתונים נשמרים בטבלאות הראשיות.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 13, "קובץ הטרנזקציות מיועד לסיסמאות והנתונים הראשיים לתוכן הרגיל."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 13, "אין הבדל, מדובר באותו קובץ בדיוק המשוכפל לגיבוי."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 13, "קובץ הלוג משמש אך ורק לעבודה במצב אופליין."));
 
         // שאלה 14
-        s_dal.Answer.Create(new Answer(NextAnswerId, 14, "תרגום כתובות מתחם (Domain Names) מילים קריאות לכתובות IP מספריות.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 14, "הצפנת נתוני הגלישה מפני האזנה של ספקי האינטרנט."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 14, "ניתוב מהיר של חבילות מידע בין ראוטרים שונים בעולם."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 14, "ניהול חיבורי ה-Wi-Fi במכשירים ניידים."));
+        s_correctAnswerIds[13] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 14, "תרגום כתובות מתחם (Domain Names) מילים קריאות לכתובות IP מספריות.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 14, "הצפנת נתוני הגלישה מפני האזנה של ספקי האינטרנט."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 14, "ניתוב מהיר של חבילות מידע בין ראוטרים שונים בעולם."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 14, "ניהול חיבורי ה-Wi-Fi במכשירים ניידים."));
 
         // שאלה 15
-        s_dal.Answer.Create(new Answer(NextAnswerId, 15, "TCP מבטיח הגעה אמינה ומסודרת של המידע באמצעות אישורים הדדיים, ואילו UDP מהיר יותר אך אינו מבטיח אמינות או סדר הגעה.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 15, "UDP מאובטח לחלוטין בהצפנה מתקדמת ו-TCP אינו מוצפן כלל."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 15, "TCP מיועד לקבצי טקסט ו-UDP מיועד אך ורק לתמונות."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 15, "אין הבדל ביניהם מבחינת מהירות או אמינות העברת הנתונים."));
+        s_correctAnswerIds[14] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 15, "TCP מבטיח הגעה אמינה ומסודרת של המידע באמצעות אישורים הדדיים, ואילו UDP מהיר יותר אך אינו מבטיח אמינות או סדר הגעה.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 15, "UDP מאובטח לחלוטין בהצפנה מתקדמת ו-TCP אינו מוצפן כלל."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 15, "TCP מיועד לקבצי טקסט ו-UDP מיועד אך ורק לתמונות."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 15, "אין הבדל ביניהם מבחינת מהירות או אמינות העברת הנתונים."));
 
         // שאלה 16
-        s_dal.Answer.Create(new Answer(NextAnswerId, 16, "סינון תעבורת הרשת הנכנסת והיוצאת על פי חוקי אבטחה מוגדרים מראש.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 16, "מניעת התחממות יתר של רכיבי החומרה בשרתים מרכזיים."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 16, "מחיקת וירוסים וקבצים זדוניים מדיסק הקשיח באופן אוטומטי."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 16, "האצת מהירות הגלישה ברשת המקומית (LAN)."));
+        s_correctAnswerIds[15] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 16, "סינון תעבורת הרשת הנכנסת והיוצאת על פי חוקי אבטחה מוגדרים מראש.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 16, "מניעת התחממות יתר של רכיבי החומרה בשרתים מרכזיים."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 16, "מחיקת וירוסים וקבצים זדוניים מדיסק הקשיח באופן אוטומטי."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 16, "האצת מהירות הגלישה ברשת המקומית (LAN)."));
 
         // שאלה 17
-        s_dal.Answer.Create(new Answer(NextAnswerId, 17, "IPv4 משתמשת ב-32 סיביות ומאפשרת מרחב כתובות מוגבל, בעוד IPv6 משתמשת ב-128 סיביות לפתרון מחסור הכתובות העולמי.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 17, "IPv4 אינה בשימוש עוד וכל האתרים בעולם עברו ל-IPv6 בלבד."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 17, "IPv6 מהירה פי עשרה מ-IPv4 במהירות הורדת הנתונים."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 17, "אין שום הבדל במספר הסיביות, ההבדל הוא רק בשמות הגרסאות."));
+        s_correctAnswerIds[16] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 17, "IPv4 משתמשת ב-32 סיביות ומאפשרת מרחב כתובות מוגבל, בעוד IPv6 משתמשת ב-128 סיביות לפתרון מחסור הכתובות העולמי.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 17, "IPv4 אינה בשימוש עוד וכל האתרים בעולם עברו ל-IPv6 בלבד."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 17, "IPv6 מהירה פי עשרה מ-IPv4 במהירות הורדת הנתונים."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 17, "אין שום הבדל במספר הסיביות, ההבדל הוא רק בשמות הגרסאות."));
 
         // שאלה 18
-        s_dal.Answer.Create(new Answer(NextAnswerId, 18, "הצפנת המידע המועבר ברשת למניעת האזנה, גניבה או שינוי של נתונים רגישים.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 18, "הפחתת זמן טעינת העמודים בדפדפן האינטרנט."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 18, "חסימת פרסומות קופצות באתרים מסחריים."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 18, "מניעת נפילות שרת בזמן עומס משתמשים גבוה."));
+        s_correctAnswerIds[17] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 18, "הצפנת המידע המועבר ברשת למניעת האזנה, גניבה או שינוי של נתונים רגישים.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 18, "הפחתת זמן טעינת העמודים בדפדפן האינטרנט."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 18, "חסימת פרסומות קופצות באתרים מסחריים."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 18, "מניעת נפילות שרת בזמן עומס משתמשים גבוה."));
 
         // שאלה 19
-        s_dal.Answer.Create(new Answer(NextAnswerId, 19, "איבוד חבילות נתונים בדרכן מיעד א' ליעד ב' עקב עומס או תקלות רשת.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 19, "גניבת סיסמאות משתמשים על ידי האקרים ברשת הפתוחה."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 19, "תשלום כספי מיותר עבור נפח גלישה חודשי בספק האינטרנט."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 19, "מחיקת קבצי מטמון (Cache) מהדפדפן באופן ידני."));
+        s_correctAnswerIds[18] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 19, "איבוד חבילות נתונים בדרכן מיעד א' ליעד ב' עקב עומס או תקלות רשת.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 19, "גניבת סיסמאות משתמשים על ידי האקרים ברשת הפתוחה."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 19, "תשלום כספי מיותר עבור נפח גלישה חודשי בספק האינטרנט."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 19, "מחיקת קבצי מטמון (Cache) מהדפדפן באופן ידני."));
 
         // שאלה 20
-        s_dal.Answer.Create(new Answer(NextAnswerId, 20, "ניתוב חבילות מידע בין רשתות שונות בדרך היעילה ביותר אל היעד.")); // נכונה
-        s_dal.Answer.Create(new Answer(NextAnswerId, 20, "אחסון קבצים ושיתופם בין מחשבים באותה רשת מקומית."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 20, "המרת אותות חשמליים לאותות אופטיים בסיב אופטי."));
-        s_dal.Answer.Create(new Answer(NextAnswerId, 20, "הגנה פיזית על ארונות תקשורת מפני נזקי מזג אוויר."));
+        s_correctAnswerIds[19] = s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 20, "ניתוב חבילות מידע בין רשתות שונות בדרך היעילה ביותר אל היעד.")); //I changed this here: save the id that Create returned, so the question can use it as CorrectAnswerId
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 20, "אחסון קבצים ושיתופם בין מחשבים באותה רשת מקומית."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 20, "המרת אותות חשמליים לאותות אופטיים בסיב אופטי."));
+        s_dal.Answer.Create(new Answer(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ 20, "הגנה פיזית על ארונות תקשורת מפני נזקי מזג אוויר."));
 
 
 
@@ -139,38 +139,38 @@ public static class Initialization
 
     private static void CreateExam()
     {
-        s_dal.Exam.Create(new Exam(NextExamId, SubjectType.Programming, new DateTime(2026, 1, 15), 5));
-        s_dal.Exam.Create(new Exam(NextExamId, SubjectType.Databases, new DateTime(2026, 2, 10), 5));
-        s_dal.Exam.Create(new Exam(NextExamId, SubjectType.Networks, new DateTime(2026, 3, 5), 5));
-        s_dal.Exam.Create(new Exam(NextExamId, SubjectType.Programming, new DateTime(2026, 4, 20), 5));
-        s_dal.Exam.Create(new Exam(NextExamId, SubjectType.Databases, new DateTime(2026, 5, 12), 5));
+        s_dal.Exam.Create(new Exam(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, new DateTime(2026, 1, 15), 5));
+        s_dal.Exam.Create(new Exam(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, new DateTime(2026, 2, 10), 5));
+        s_dal.Exam.Create(new Exam(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, new DateTime(2026, 3, 5), 5));
+        s_dal.Exam.Create(new Exam(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, new DateTime(2026, 4, 20), 5));
+        s_dal.Exam.Create(new Exam(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, new DateTime(2026, 5, 12), 5));
     }
 
     private static void CreateQuestion()
     {
         // אתחול השאלות
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מהו ההבדל המרכזי בין עקרונות תכנות מונחה עצמים (OOP) לתכנות פרוצדורלי?", 1));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מה תפקידו של מנגנון ה-Garbage Collection בשפות ניהול זיכרון אוטומטיות?", 5));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מהי מורכבות הזמן (Time Complexity) של אלגוריתם חיפוש בינארי (Binary Search)?", 9));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מה המשמעות של עקרון ה-DRY (Don't Repeat Yourself) בפיתוח תוכנה?", 13));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מה ההבדל בין מבנה נתונים מסוג Stack (מחסנית) לבין Queue (תור)?", 17));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מהו תפקידו של מפתח ראשי (Primary Key) במסד נתונים רלציוני?", 21));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Programming, "מה פירוש המושג API בפיתוח תוכנה?", 25));
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מהו ההבדל המרכזי בין עקרונות תכנות מונחה עצמים (OOP) לתכנות פרוצדורלי?", s_correctAnswerIds[0])); //I changed this here: hard-coded 1 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מה תפקידו של מנגנון ה-Garbage Collection בשפות ניהול זיכרון אוטומטיות?", s_correctAnswerIds[1])); //I changed this here: hard-coded 5 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מהי מורכבות הזמן (Time Complexity) של אלגוריתם חיפוש בינארי (Binary Search)?", s_correctAnswerIds[2])); //I changed this here: hard-coded 9 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מה המשמעות של עקרון ה-DRY (Don't Repeat Yourself) בפיתוח תוכנה?", s_correctAnswerIds[3])); //I changed this here: hard-coded 13 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מה ההבדל בין מבנה נתונים מסוג Stack (מחסנית) לבין Queue (תור)?", s_correctAnswerIds[4])); //I changed this here: hard-coded 17 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מהו תפקידו של מפתח ראשי (Primary Key) במסד נתונים רלציוני?", s_correctAnswerIds[5])); //I changed this here: hard-coded 21 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Programming, "מה פירוש המושג API בפיתוח תוכנה?", s_correctAnswerIds[6])); //I changed this here: hard-coded 25 -> the real Answer.Id returned by Create
 
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Databases, "מהו תפקידו של מדד (Index) במסד נתונים?", 29));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Databases, "מה משמעות המונח ACID בניהול מסדי נתונים רלציוניים?", 33));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Databases, "מה ההבדל בין פעולת INNER JOIN לפעולת LEFT JOIN בשפת SQL?", 37));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Databases, "מהי נורמליזציה (Normalization) במסדי נתונים?", 41));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Databases, "מהי מטרתה של שאילתת Aggregation כגון GROUP BY?", 45));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Databases, "מה ההבדל בין קובץ Transaction Log לבין קובץ הנתונים הראשי במסד נתונים?", 49));
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, "מהו תפקידו של מדד (Index) במסד נתונים?", s_correctAnswerIds[7])); //I changed this here: hard-coded 29 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, "מה משמעות המונח ACID בניהול מסדי נתונים רלציוניים?", s_correctAnswerIds[8])); //I changed this here: hard-coded 33 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, "מה ההבדל בין פעולת INNER JOIN לפעולת LEFT JOIN בשפת SQL?", s_correctAnswerIds[9])); //I changed this here: hard-coded 37 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, "מהי נורמליזציה (Normalization) במסדי נתונים?", s_correctAnswerIds[10])); //I changed this here: hard-coded 41 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, "מהי מטרתה של שאילתת Aggregation כגון GROUP BY?", s_correctAnswerIds[11])); //I changed this here: hard-coded 45 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Databases, "מה ההבדל בין קובץ Transaction Log לבין קובץ הנתונים הראשי במסד נתונים?", s_correctAnswerIds[12])); //I changed this here: hard-coded 49 -> the real Answer.Id returned by Create
 
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מה תפקידו של פרוטוקול ה-DNS ברשת האינטרנט?", 53));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מה ההבדל העיקרי בין פרוטוקול TCP לבין פרוטוקול UDP?", 57));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מהו תפקידו של פיירוול (Firewall) באבטחת מידע?", 61));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מה ההבדל בין כתובת IP גרסה 4 (IPv4) לכתובת IP גרסה 6 (IPv6)?", 65));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מהי מטרת פרוטוקול ההצפנה HTTPS בתקשורת דפדפן ושרת?", 69));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מה משמעות המושג Packet Loss בתקשורת נתונים?", 73));
-        s_dal.Question.Create(new Question(NextQuestionId, SubjectType.Networks, "מהו תפקידו של מנתב (Router) ברשת תקשורת מחשבים?", 77));
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מה תפקידו של פרוטוקול ה-DNS ברשת האינטרנט?", s_correctAnswerIds[13])); //I changed this here: hard-coded 53 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מה ההבדל העיקרי בין פרוטוקול TCP לבין פרוטוקול UDP?", s_correctAnswerIds[14])); //I changed this here: hard-coded 57 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מהו תפקידו של פיירוול (Firewall) באבטחת מידע?", s_correctAnswerIds[15])); //I changed this here: hard-coded 61 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מה ההבדל בין כתובת IP גרסה 4 (IPv4) לכתובת IP גרסה 6 (IPv6)?", s_correctAnswerIds[16])); //I changed this here: hard-coded 65 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מהי מטרת פרוטוקול ההצפנה HTTPS בתקשורת דפדפן ושרת?", s_correctAnswerIds[17])); //I changed this here: hard-coded 69 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מה משמעות המושג Packet Loss בתקשורת נתונים?", s_correctAnswerIds[18])); //I changed this here: hard-coded 73 -> the real Answer.Id returned by Create
+        s_dal.Question.Create(new Question(0, /*I changed this here: Next*Id -> 0 (the id is generated in the DAL)*/ SubjectType.Networks, "מהו תפקידו של מנתב (Router) ברשת תקשורת מחשבים?", s_correctAnswerIds[19])); //I changed this here: hard-coded 77 -> the real Answer.Id returned by Create
 
     }
 
@@ -209,8 +209,8 @@ public static class Initialization
         s_dal.Student.Create(new Student(313145698, "יצחק שמיר", 1004, 93));
         s_dal.Student.Create(new Student(217852963, "לאה רוט", 1004, 85));
         s_dal.Student.Create(new Student(215874965, "רבקה שיק", 1004, 90));
-        s_dal.Student.Create(new (220458987, "מרים לוי", 1004, 86));
-    }Student
+        s_dal.Student.Create(new Student(220458987, "מרים לוי", 1004, 86)); //I changed this here: added the missing type name "Student"
+    } //I changed this here: removed the stray token "Student" after the closing brace
 
     private static void CreateStudentQuestion()
     {
@@ -352,8 +352,9 @@ public static class Initialization
 
     }
 
-    public Initialize()
+    public static void Initialize(IDal s_dal) //I changed this here: added "static void" - a method needs a return type, and it is called from Main without an instance
     {
+        Initialization.s_dal = s_dal; //I changed this here: save the parameter into the STATIC FIELD - without this the field stays null and CreateAnswer() throws NullReferenceException
         CreateAnswer();
         CreateExam();
         CreateQuestion();
